@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+<link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+
+{% block body %}
+
+<div class="container">
+    <h1>Predict Page</h1>
+
+    <form method="POST" action="{{ url_for('predict')}}">
+
+
+        <label>Fuel</label>
+        <div>
+            <input type="radio" name="fuel" id="Diesel" value="1"> Diesel </input><br>
+            <input type="radio" name="fuel" id="Petrol" value="0"> Petrol </input><br>
+            
+        </div><br>
+        
+         <label>Seller type</label>
+        <div>
+            <input type="radio" name="seller_type" id="indivual" value="1"> indivual </input><br>
+            <input type="radio" name="seller_type" id="Dealer" value="0"> Dealer </input><br>
+            <input type="radio" name="seller_type" id="Trustmark Dealer" value="2">Trustmark Dealer </input><br>
+        </div><br>
+
+        <label>Transmission</label>
+        <div>
+            <input type="radio" name="transmission" id="manuel" value="1"> manuel </input><br>
+            <input type="radio" name="transmission" id="automatic" value="0"> automatic </input><br>
+            
+        </div><br>
+
+        <label>Owner</label>
+        <div>
+            <input type="radio" name="owner" id="first" value="0"> First owner </input><br>
+            <input type="radio" name="owner" id="second" value="2"> Second owner </input><br>
+            <input type="radio" name="owner" id="third" value="3"> third owner </input><br>
+            <input type="radio" name="owner" id="fourthandobove" value="1"> fourthandobove </input><br>
+            
+        </div><br>
+
+        <label>Year</label>
+
+        <div>
+            <input type="number" min="1992" max="2017" value="2015" id="year" name="year"
+                style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem; padding-left: 10px; padding-right: 10px; font-size: 125%; height: calc(2.875rem + 2px); margin-bottom: 1rem!important;">
+        </div>
+
+
+        <label>km driven</label>
+        <div>
+            <input type="number"  value="50000" id="km_driven" name="km_driven"
+                style="width: 100%; border: 1px solid #ced4da; border-radius: .25rem; padding-left: 10px; padding-right: 10px; font-size: 125%; height: calc(2.875rem + 2px); margin-bottom: 1rem!important;">
+        </div>
+
+
+        <label>Tahmin Modeli Seçiniz..</label>
+        <div>
+            <input type="radio" name="models" id="dc" checked="checked" value="1"> Decision Tree </input><br>
+            <input type="radio" name="models" id="rf" value="2"> Random Forest </input><br>
+            <input type="radio" name="models" id="lr" value="3"> Linear Regression </input><br>
+
+        </div>
+
+        <div class="mt-3 mb-3">
+            <button type="submit" class="btn btn-primary">Tahmin Yap</button>
+        </div>
+        
+        {%if sonuc%}
+        <div class="alert alert-success" role="alert" style="margin-top: 10px;">
+            Sonuç : {% print(sonuc) %} TL
+        </div>
+        {%endif%}
+
+    </form>
+
+
+
+</div>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+
+{% endblock %}

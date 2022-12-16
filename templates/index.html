@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename = 'css/bootstrap.css')}}" rel="stylesheet">
+
+{% block body %}
+
+<div class="container">
+
+    <h1 style="text-align: center;">Araba Fiyat Tahmin Uygulaması</h1>
+
+    <img src="{{url_for('static', filename='img/togg.jpg')}}" class="rounded mx-auto d-block"  width="640" height="360"><br>
+
+
+    
+      <center>
+    <h4>Celal Bayar Üniversitesi Yazılım Mühendisliği Bölümü </h4>
+    <h5>Profesyonel Yazılım Geliştirme2 Dersi Projesi </h5>
+    <p>Bu proje için 4340 adet araca ait veri kullanılmıştır. </p>
+    <p>Araç Fiyat Tahmini için Decision Tree Regression, Random Forest Regression ve Linear Regression algoritmaları kullanılmıştır </p>
+    </center>
+    
+
+</div>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+
+{% endblock %}
